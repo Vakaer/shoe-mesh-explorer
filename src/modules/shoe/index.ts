@@ -1,0 +1,1 @@
+export {Shoe} from './shoe';
