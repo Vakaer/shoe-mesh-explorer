@@ -23,14 +23,24 @@
     "noUncheckedSideEffectImports": true,
 
     /* Paths */
-    "paths": {
-      "@/*": ["./src/*"],
-      "@components/*": ["./src/components/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@assets/*": ["./src/assets/*"],
-      "@styles/*": ["./src/styles/*"]
-    }
+  "paths": {
+    "@/*": ["./src/*"],
+    "@modules/*": ["./src/modules/*"],
+
+    // Shoes module
+    "@shoes/*": ["./src/modules/shoes/*"],
+    "@shoes/components/*": ["./src/modules/shoes/components/*"],
+    "@shoes/hooks/*": ["./src/modules/shoes/hooks/*"],
+    "@shoes/utils/*": ["./src/modules/shoes/utils/*"],
+
+    // Shared folders (if still needed)
+    "@components/*": ["./src/components/*"],
+    "@hooks/*": ["./src/modules/shoe/hooks/*"],
+    "@utils/*": ["./src/utils/*"],
+    "@assets/*": ["./src/assets/*"],
+    "@styles/*": ["./src/styles/*"]
+  }
+
   },
   "include": ["src"]
 }

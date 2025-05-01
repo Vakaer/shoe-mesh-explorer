@@ -1,4 +1,4 @@
-import { ShoeStore, useShoeStore } from "../../../hooks/use-shoe-store"
+import { ShoeStore, useShoeStore } from "../hooks/use-shoe-store"
 import { HexColorPicker } from "react-colorful"
 
 export function Picker() {
