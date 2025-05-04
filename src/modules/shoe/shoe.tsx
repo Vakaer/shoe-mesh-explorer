@@ -59,8 +59,8 @@ export const Shoe = ({ transformMode}: ShoeProps) => {
     document.body.appendChild(meshDiv);
 
     const moveLabel = (e: MouseEvent) => {
-      meshDiv.style.left = `${e.clientX + 20}px`;
-      meshDiv.style.top = `${e.clientY + 20}px`;
+      meshDiv.style.left = `${e.clientX + 50}px`;
+      meshDiv.style.top = `${e.clientY + 50}px`;
     };
 
     document.addEventListener("mousemove", moveLabel);
@@ -74,13 +74,14 @@ export const Shoe = ({ transformMode}: ShoeProps) => {
     `;
 
     if (hovered) {
-      document.body.style.cursor = `url('data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(cursor)))}') 32 32, auto`;
+      document.body.style.cursor = `url('data:image/svg+xml;base64,${btoa(cursor)}'), auto`;
       meshDiv.innerText = hovered;
       meshDiv.style.opacity = "1";
-    } else {
-      document.body.style.cursor = `url('data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(auto)))}') 32 32, auto`;
-      meshDiv.innerText = "";
-      meshDiv.style.opacity = "0";
+      return () => {
+        document.body.style.cursor = `url('data:image/svg+xml;base64,${btoa(auto)}'), auto`;
+        meshDiv.style.opacity = "0";
+        meshDiv.innerText = "";
+      };
     }
 
     return () => {
@@ -119,6 +120,8 @@ export const Shoe = ({ transformMode}: ShoeProps) => {
       onPointerMissed={() => setCurrent(null)}
       onClick={(e) => {
         e.stopPropagation();
+        setSelected(null)
+        setCurrent(null)
         const name = getMeshName(e.object);
         console.log('e.object.uuid', e.object.id)
         if (name) {
