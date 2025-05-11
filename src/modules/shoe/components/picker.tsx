@@ -3,7 +3,7 @@ import { HexColorPicker } from "react-colorful"
 
 export function Picker() {
   const {current, items} = useShoeStore() as ShoeStore;
-
+  console.log("current", current ? items[current] : '')
   return (
     <div style={{ display: current ? "block" : "none", margin: '1rem' }}>
       <HexColorPicker className="picker" color={current ? items[current] : ''} onChange={(color: string) => current && (items[current] = color)} />
